@@ -1,0 +1,25 @@
+DATA_FOLDER = "ATPmatchesdata"
+YEARS            = range(2011, 2025)
+TRAIN_END_YEAR   = 2022
+TEST_START_YEAR  = 2023
+
+ROLLING_WINDOW   = 20
+SURFACE_WINDOW   = 15
+EWM_HALFLIFE     = 5
+H2H_WINDOW       = 10
+MIN_MATCHES      = 5
+CV_SPLITS        = 5
+RANDOM_SEED      = 42
+
+ELO_INIT         = 1500.0
+ELO_BASE         = 400.0
+ELO_K_NUM        = 250.0
+ELO_K_DENOM      = 5.0
+ELO_K_POW        = 0.4
+
+ODDS_FILES       = ["2023.xlsx", "2024.xlsx"]
+BOOKMAKER        = "B365"
+MIN_EDGE         = 0.03
+
+MIN_OVERALL_ELO      = 1650
+MIN_SURFACE_MATCHES  = 20
