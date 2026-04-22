@@ -71,7 +71,7 @@ All rolling features were lagged by 1, hence the current match is never included
 ## Key design decisions
 
 ### Data leakage from match stats
-Early versions used in-match statistics (`w_ace`, `w_df`, etc.) as features to predict the outcome of that same match. This gave ~99% accuracy. All features are derived exclusively from matches played *before* the match being predicted. Rolling averages use `shift(1)` (lagged by 1) to guarantee no current-match information is included.
+Early versions used in-match statistics (`w_ace`, `w_df`, etc.) as features to predict the outcome of that same match. This gave ~99% accuracy, obviously sketchy. All features are derived exclusively from matches played *before* the match being predicted. Rolling averages use `shift(1)` (lagged by 1) to guarantee no current-match information is included.
 
 ### Mirror problem
 Generating two rows per match (winner perspective + loser perspective) creates perfectly symmetric pairs. `rank_diff > 0 → y=1` becomes an obvious identity that inflates AUC to 0.98. We solved it using one row per match. A fixed random seed assigns which player is "A" vs "B" for each match. The resulting dataset is 50/50 balanced without creating symmetric pairs.
